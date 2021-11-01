@@ -1,25 +1,24 @@
 
 package cz.vellu.library.Model;
 
+import java.io.Serializable;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Book {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
     private int book_id;
     private String isbn;
     private String title;
     private String description;
     private int year;
-    @JoinColumn(name = "author_id")
-    private Author author;
 
     public int getBook_id() {
         return book_id;
@@ -59,19 +58,6 @@ public class Book {
 
     public void setYear(int year) {
         this.year = year;
-    }
+    }    
 
-    public Author getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(Author author) {
-        this.author = author;
-    }
-    
-    
-    
-    
-    
-    
 }
